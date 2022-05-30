@@ -18,6 +18,7 @@ body{
     border-radius: 7px;
     padding: 28px 28px 45px;
 }
+
 .wrapper header{
     font-size: 28px;
     font-weight: 500;
@@ -27,6 +28,7 @@ body{
     position: relative;
     margin: 35px 0 18px;
 }
+
 .search input{
     height: 53px;
     width: 100%;
@@ -66,14 +68,26 @@ body{
 .search input:valid ~ span{
     display: block;
 }
-.wrapper ul{
-    display: none;
-}
 .wrapper .info-text{
     font-size: 13px;
     color: darkgray;
     margin: -3px 0 -1px;
 }
+.wrapper.active .info-text{
+    display: none;
+}
+.wrapper ul{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.wrapper.active ul{
+    height: 303px;
+    opacity: 1;
+}
+
 .wrapper ul li{
     display: flex;
     margin-bottom: 14px;
@@ -99,6 +113,13 @@ ul .word i{
     cursor: pointer;
     font-size: 15px;
     color: darkgray;
+}
+ul .content{
+    max-height: 215px;
+    overflow-y: auto;
+}
+ul .content::-webkit-scrollbar{
+    width: 0px;
 }
 .content li .details{
     border-left: 3px solid darkseagreen;
